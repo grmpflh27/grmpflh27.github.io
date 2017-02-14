@@ -118,13 +118,6 @@ var DEST_CITY = "";
 var NO_ADULTS = 0;
 var IATA_MAP = {}
 
-function loadIATAmap(){
-	$.getJSON(settings.IATA_path, function(json) {
-    	console.log(json); 
-    	IATA_MAP = json
-	});
-}
-
 function updateDates(){
 	var night_switch = document.getElementById("nights");
 	var ddate = document.getElementById("ddate");
@@ -400,8 +393,8 @@ function getHotelHTML(){
  		//parse it out
  		if (cur.length == settings.ValidSizeForFlight){
  			flight_parse_obj = {
- 				orig : cur[4],
- 				dest : cur[5],
+ 				orig : "{0}, {1}".format(IATA_MAP[cur[4]].city, IATA_MAP[cur[4]].county),
+ 				dest : "{0}, {1}".format(IATA_MAP[cur[5]].city, IATA_MAP[cur[5]].county),
  				ddate : moment(cur[3].concat(cur_year)).format(settings.DateFormat),
  				dtime : formatTime(cur[6]),
  				adate : moment(cur[8].concat(cur_year)).format(settings.DateFormat),
@@ -456,7 +449,17 @@ function getHotelHTML(){
 	return flight_str
  }
 
+ function loadIATAmap(){
+	$.getJSON(settings.IATA_path, function(json) {
+    	console.log(json); 
+    	IATA_MAP = json
+	});
+}
+
 function generateReport(){
+
+	// first load mapping
+	loadIATAmap();
 
 	//flight report from template
 	var right_order_txt;
