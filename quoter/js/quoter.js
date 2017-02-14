@@ -5,6 +5,7 @@
 const settings = {
 	DateFormat : "MMMM Do, YYYY",
 	ValidSizeForFlight : 10,
+	IATA_path : "https://grmpflh27.github.io/quoter/data/airport.json"
 }
 
 const templates = {
@@ -118,7 +119,7 @@ var NO_ADULTS = 0;
 var IATA_MAP = {}
 
 function loadIATAmap(){
-	$.getJSON("data/airport.json", function(json) {
+	$.getJSON(settings.IATA_path, function(json) {
     	console.log(json); 
     	IATA_MAP = json
 	});
