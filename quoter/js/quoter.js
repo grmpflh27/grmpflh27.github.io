@@ -1,3 +1,13 @@
+// TODO
+
+/*
+ * REVNET support
+ * fix hotel pricing (adult)
+ * "round trip <from> ... <to> ...
+ * child pricing
+ * family totals
+ */
+
 /*
  * settings
  */
@@ -12,14 +22,14 @@ const templates = {
 	greeting : "Hello {0},</br></br>Thanks for your message, I'd be happy to help you book this trip!</br></br>",
 	package_overview: `Our {0} includes: \
 						<ul><li>round trip flights from {1} to {2}</li>\
-		    				<li>{3} accommodation{4} in {5}</li>\
+		    				<li>{3} night{4} accommodation{4} in {5}</li>\
 		    				<li>round trip transfers between airport and hotel</li></ul></br>`,
 	flight : "Depart: {0} at {1}{2}, Arrive {3} at {4}{5}</br>",
 	hotel : `On these dates, {0}. The total price per person would be:</br>
 			 Adult ({1}): \${2} + \${3} taxes and fees = \${4}</br>`,
 	hotel_kid : "Children ({1}): \${2} + \${3} taxes and fees = \${4}</br>",
 	ending : "Let me know what you think of these, and I'm happy to look up some more options. Thanks!",
-	overnight_str : " (+{0}) "
+	overnight_str : " (+{0})"
 }
 
 //////////////
