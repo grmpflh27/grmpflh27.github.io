@@ -120,7 +120,7 @@ var IATA_MAP = {}
 function loadIATAmap(){
 	$.getJSON("data/airport.json", function(json) {
     	console.log(json); 
-    	return json
+    	IATA_MAP = json
 	});
 }
 
